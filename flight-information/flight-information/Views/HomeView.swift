@@ -8,47 +8,65 @@
 import SwiftUI
 
 struct HomeView: View {
-    
-    @StateObject var homeViewModel:HomeViewModel
+    @ObservedObject var homeViewModel:HomeViewModel = HomeViewModel()
     @State private var searchText: String = ""
     @State private var dropDownFor: String = ""
-    @State var date = Date()
     
     init(){
-        self._homeViewModel = StateObject.init(wrappedValue: HomeViewModel())
-        
-        //StateObject는  _(언더바)를 붙혀서 초기화를 해줘야함, bind과 같음
     }
     
     var body: some View {
-        VStack{
+        VStack(spacing: 10){
             Text("출발공항")
-            ContentView(dropDownFor: $dropDownFor)
+            
+            DropdownView(selected: $homeViewModel.selectedDepartAirport,
+                         list: $homeViewModel.airportList) { airport in
+                "\(airport.airportNm)"
+            }contentAppearance: { airport in
+                Text("\(airport.airportNm)")
+            }.frame(width: 250)
+            
             Text("도착공항")
-            ContentView(dropDownFor: $dropDownFor)
+            
+            DropdownView(selected: $homeViewModel.selectedArriveAirport,
+                         list: $homeViewModel.airportList) { airport in
+                "\(airport.airportNm)"
+            }contentAppearance: { airport in
+                Text("\(airport.airportNm)")
+            }.frame(width: 250)
+            
             DatePicker(
                   "출발일",
-                  selection: $date,
+                  selection: $homeViewModel.selectedDate,
                   displayedComponents: [.date]
             ).frame(width: 200)
+            
             Text("항공사")
-            dropDownFor = "airport"
-            ContentView(arr: self.homeViewModel.$airlines)
+            DropdownView(selected: $homeViewModel.selectedAirline,
+                         list: $homeViewModel.airlineList) { airline in
+                "\(airline.airlineNm)"
+            }contentAppearance: { airline in
+                Text("\(airline.airlineNm)")
+            }.frame(width: 250)
+            
             Button(action: {
-                print("검색")
+                print("조회")
+                print(self.homeViewModel.selectedArriveAirport)
+                print(self.homeViewModel.selectedDepartAirport)
+                print(self.homeViewModel.selectedDate.description)
+                print(self.homeViewModel.selectedAirline)
             }, label: {
                 HStack {
-                    Text("검색")
+                    Text("조회")
                 }
                 .fixedSize()
             })
             .buttonStyle(.borderedProminent)
-            Text(self.homeViewModel.airports.debugDescription)
+            .disabled(self.homeViewModel.selectedArriveAirport == nil || self.homeViewModel.selectedDepartAirport == nil || self.homeViewModel.selectedAirline == nil)
         }
         .onAppear{
-            self.homeViewModel.getFlightOpratInfoList()
-            self.homeViewModel.getArprtList()
-            self.homeViewModel.getAirmanList()
+            self.homeViewModel.getAirportList()
+            self.homeViewModel.getAirlineList()
         }
     }
     
