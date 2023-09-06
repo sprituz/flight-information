@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9B95122A2AA69BBB0038343F /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512292AA69BBB0038343F /* ViewModelable.swift */; };
 		9B95122E2AA69E270038343F /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B95122D2AA69E270038343F /* RootView.swift */; };
 		9B9512332AA69FB90038343F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512322AA69FB90038343F /* HomeView.swift */; };
 		9B9512352AA69FC90038343F /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512342AA69FC80038343F /* FavoritesView.swift */; };
@@ -18,11 +17,11 @@
 		9B9512472AA6C37E0038343F /* ArprtListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512462AA6C37E0038343F /* ArprtListResponse.swift */; };
 		9B9512492AA6C54D0038343F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512482AA6C54D0038343F /* HomeViewModel.swift */; };
 		9B95124C2AA6E17D0038343F /* AirmanListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B95124B2AA6E17D0038343F /* AirmanListResponse.swift */; };
-		9B9512522AA6FC050038343F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512512AA6FC050038343F /* ContentView.swift */; };
 		9B9512542AA706B40038343F /* FlightOpratInfoListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512532AA706B40038343F /* FlightOpratInfoListResponse.swift */; };
-		9B9512582AA7EE990038343F /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512572AA7EE990038343F /* ContentViewModel.swift */; };
 		9B95125B2AA7EF7C0038343F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 9B95125A2AA7EF7C0038343F /* Realm */; };
 		9B95125D2AA7EF7C0038343F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9B95125C2AA7EF7C0038343F /* RealmSwift */; };
+		9B95125F2AA8121A0038343F /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B95125E2AA8121A0038343F /* ListView.swift */; };
+		9B9512612AA832BE0038343F /* DropdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512602AA832BE0038343F /* DropdownView.swift */; };
 		9BF4094E2AA61FBB00285071 /* flight_informationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF4094D2AA61FBB00285071 /* flight_informationApp.swift */; };
 		9BF409522AA61FBC00285071 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BF409512AA61FBC00285071 /* Assets.xcassets */; };
 		9BF409552AA61FBC00285071 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BF409542AA61FBC00285071 /* Preview Assets.xcassets */; };
@@ -49,7 +48,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9B9512292AA69BBB0038343F /* ViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
 		9B95122D2AA69E270038343F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		9B9512322AA69FB90038343F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9B9512342AA69FC80038343F /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
@@ -60,9 +58,9 @@
 		9B9512482AA6C54D0038343F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		9B95124A2AA6C96D0038343F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9B95124B2AA6E17D0038343F /* AirmanListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirmanListResponse.swift; sourceTree = "<group>"; };
-		9B9512512AA6FC050038343F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9B9512532AA706B40038343F /* FlightOpratInfoListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightOpratInfoListResponse.swift; sourceTree = "<group>"; };
-		9B9512572AA7EE990038343F /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		9B95125E2AA8121A0038343F /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		9B9512602AA832BE0038343F /* DropdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownView.swift; sourceTree = "<group>"; };
 		9BF4094A2AA61FBB00285071 /* flight-information.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "flight-information.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BF4094D2AA61FBB00285071 /* flight_informationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flight_informationApp.swift; sourceTree = "<group>"; };
 		9BF409512AA61FBC00285071 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,7 +116,8 @@
 				9B95122D2AA69E270038343F /* RootView.swift */,
 				9B9512322AA69FB90038343F /* HomeView.swift */,
 				9B9512342AA69FC80038343F /* FavoritesView.swift */,
-				9B9512512AA6FC050038343F /* ContentView.swift */,
+				9B95125E2AA8121A0038343F /* ListView.swift */,
+				9B9512602AA832BE0038343F /* DropdownView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -127,7 +126,6 @@
 			isa = PBXGroup;
 			children = (
 				9B9512482AA6C54D0038343F /* HomeViewModel.swift */,
-				9B9512572AA7EE990038343F /* ContentViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -169,7 +167,6 @@
 				9B9512312AA69E770038343F /* ViewModels */,
 				9B9512302AA69E6B0038343F /* Views */,
 				9B95122F2AA69E590038343F /* Models */,
-				9B9512292AA69BBB0038343F /* ViewModelable.swift */,
 				9BF4094D2AA61FBB00285071 /* flight_informationApp.swift */,
 				9BF409512AA61FBC00285071 /* Assets.xcassets */,
 				9BF409532AA61FBC00285071 /* Preview Content */,
@@ -344,15 +341,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B9512432AA6B8220038343F /* APIService.swift in Sources */,
-				9B9512582AA7EE990038343F /* ContentViewModel.swift in Sources */,
 				9B9512542AA706B40038343F /* FlightOpratInfoListResponse.swift in Sources */,
-				9B9512522AA6FC050038343F /* ContentView.swift in Sources */,
 				9B9512492AA6C54D0038343F /* HomeViewModel.swift in Sources */,
+				9B9512612AA832BE0038343F /* DropdownView.swift in Sources */,
 				9B95124C2AA6E17D0038343F /* AirmanListResponse.swift in Sources */,
 				9B95123E2AA6ABA90038343F /* flight-information++Bundle.swift in Sources */,
 				9B9512352AA69FC90038343F /* FavoritesView.swift in Sources */,
-				9B95122A2AA69BBB0038343F /* ViewModelable.swift in Sources */,
 				9B9512332AA69FB90038343F /* HomeView.swift in Sources */,
+				9B95125F2AA8121A0038343F /* ListView.swift in Sources */,
 				9BF4094E2AA61FBB00285071 /* flight_informationApp.swift in Sources */,
 				9B9512472AA6C37E0038343F /* ArprtListResponse.swift in Sources */,
 				9B95122E2AA69E270038343F /* RootView.swift in Sources */,
