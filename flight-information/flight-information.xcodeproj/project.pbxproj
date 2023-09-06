@@ -7,8 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B95122A2AA69BBB0038343F /* ViewModelable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512292AA69BBB0038343F /* ViewModelable.swift */; };
+		9B95122E2AA69E270038343F /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B95122D2AA69E270038343F /* RootView.swift */; };
+		9B9512332AA69FB90038343F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512322AA69FB90038343F /* HomeView.swift */; };
+		9B9512352AA69FC90038343F /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512342AA69FC80038343F /* FavoritesView.swift */; };
+		9B95123C2AA6AA710038343F /* FlightInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B95123B2AA6AA710038343F /* FlightInfo.plist */; };
+		9B95123E2AA6ABA90038343F /* flight-information++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B95123D2AA6ABA90038343F /* flight-information++Bundle.swift */; };
+		9B9512412AA6B1E80038343F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9B9512402AA6B1E80038343F /* Alamofire */; };
+		9B9512432AA6B8220038343F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512422AA6B8220038343F /* APIService.swift */; };
+		9B9512472AA6C37E0038343F /* ArprtListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512462AA6C37E0038343F /* ArprtListResponse.swift */; };
+		9B9512492AA6C54D0038343F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512482AA6C54D0038343F /* HomeViewModel.swift */; };
+		9B95124C2AA6E17D0038343F /* AirmanListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B95124B2AA6E17D0038343F /* AirmanListResponse.swift */; };
+		9B9512522AA6FC050038343F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512512AA6FC050038343F /* ContentView.swift */; };
+		9B9512542AA706B40038343F /* FlightOpratInfoListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512532AA706B40038343F /* FlightOpratInfoListResponse.swift */; };
+		9B9512582AA7EE990038343F /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512572AA7EE990038343F /* ContentViewModel.swift */; };
+		9B95125B2AA7EF7C0038343F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 9B95125A2AA7EF7C0038343F /* Realm */; };
+		9B95125D2AA7EF7C0038343F /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9B95125C2AA7EF7C0038343F /* RealmSwift */; };
 		9BF4094E2AA61FBB00285071 /* flight_informationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF4094D2AA61FBB00285071 /* flight_informationApp.swift */; };
-		9BF409502AA61FBB00285071 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF4094F2AA61FBB00285071 /* ContentView.swift */; };
 		9BF409522AA61FBC00285071 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BF409512AA61FBC00285071 /* Assets.xcassets */; };
 		9BF409552AA61FBC00285071 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BF409542AA61FBC00285071 /* Preview Assets.xcassets */; };
 		9BF4095F2AA61FBC00285071 /* flight_informationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF4095E2AA61FBC00285071 /* flight_informationTests.swift */; };
@@ -34,9 +49,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B9512292AA69BBB0038343F /* ViewModelable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelable.swift; sourceTree = "<group>"; };
+		9B95122D2AA69E270038343F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		9B9512322AA69FB90038343F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9B9512342AA69FC80038343F /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		9B95123B2AA6AA710038343F /* FlightInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = FlightInfo.plist; sourceTree = "<group>"; };
+		9B95123D2AA6ABA90038343F /* flight-information++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "flight-information++Bundle.swift"; sourceTree = "<group>"; };
+		9B9512422AA6B8220038343F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		9B9512462AA6C37E0038343F /* ArprtListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArprtListResponse.swift; sourceTree = "<group>"; };
+		9B9512482AA6C54D0038343F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		9B95124A2AA6C96D0038343F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9B95124B2AA6E17D0038343F /* AirmanListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirmanListResponse.swift; sourceTree = "<group>"; };
+		9B9512512AA6FC050038343F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9B9512532AA706B40038343F /* FlightOpratInfoListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightOpratInfoListResponse.swift; sourceTree = "<group>"; };
+		9B9512572AA7EE990038343F /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		9BF4094A2AA61FBB00285071 /* flight-information.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "flight-information.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BF4094D2AA61FBB00285071 /* flight_informationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flight_informationApp.swift; sourceTree = "<group>"; };
-		9BF4094F2AA61FBB00285071 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9BF409512AA61FBC00285071 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BF409542AA61FBC00285071 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9BF4095A2AA61FBC00285071 /* flight-informationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "flight-informationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +79,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B95125D2AA7EF7C0038343F /* RealmSwift in Frameworks */,
+				9B95125B2AA7EF7C0038343F /* Realm in Frameworks */,
+				9B9512412AA6B1E80038343F /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +102,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B95122F2AA69E590038343F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9B9512462AA6C37E0038343F /* ArprtListResponse.swift */,
+				9B95124B2AA6E17D0038343F /* AirmanListResponse.swift */,
+				9B9512532AA706B40038343F /* FlightOpratInfoListResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9B9512302AA69E6B0038343F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9B95122D2AA69E270038343F /* RootView.swift */,
+				9B9512322AA69FB90038343F /* HomeView.swift */,
+				9B9512342AA69FC80038343F /* FavoritesView.swift */,
+				9B9512512AA6FC050038343F /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9B9512312AA69E770038343F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9B9512482AA6C54D0038343F /* HomeViewModel.swift */,
+				9B9512572AA7EE990038343F /* ContentViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		9B9512362AA6A7FE0038343F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9B9512422AA6B8220038343F /* APIService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		9BF409412AA61FBB00285071 = {
 			isa = PBXGroup;
 			children = (
@@ -94,10 +163,17 @@
 		9BF4094C2AA61FBB00285071 /* flight-information */ = {
 			isa = PBXGroup;
 			children = (
+				9B95124A2AA6C96D0038343F /* Info.plist */,
+				9B95123B2AA6AA710038343F /* FlightInfo.plist */,
+				9B9512362AA6A7FE0038343F /* Services */,
+				9B9512312AA69E770038343F /* ViewModels */,
+				9B9512302AA69E6B0038343F /* Views */,
+				9B95122F2AA69E590038343F /* Models */,
+				9B9512292AA69BBB0038343F /* ViewModelable.swift */,
 				9BF4094D2AA61FBB00285071 /* flight_informationApp.swift */,
-				9BF4094F2AA61FBB00285071 /* ContentView.swift */,
 				9BF409512AA61FBC00285071 /* Assets.xcassets */,
 				9BF409532AA61FBC00285071 /* Preview Content */,
+				9B95123D2AA6ABA90038343F /* flight-information++Bundle.swift */,
 			);
 			path = "flight-information";
 			sourceTree = "<group>";
@@ -143,6 +219,11 @@
 			dependencies = (
 			);
 			name = "flight-information";
+			packageProductDependencies = (
+				9B9512402AA6B1E80038343F /* Alamofire */,
+				9B95125A2AA7EF7C0038343F /* Realm */,
+				9B95125C2AA7EF7C0038343F /* RealmSwift */,
+			);
 			productName = "flight-information";
 			productReference = 9BF4094A2AA61FBB00285071 /* flight-information.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +296,10 @@
 				Base,
 			);
 			mainGroup = 9BF409412AA61FBB00285071;
+			packageReferences = (
+				9B95123F2AA6B1E80038343F /* XCRemoteSwiftPackageReference "Alamofire" */,
+				9B9512592AA7EF7C0038343F /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = 9BF4094B2AA61FBB00285071 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -233,6 +318,7 @@
 			files = (
 				9BF409552AA61FBC00285071 /* Preview Assets.xcassets in Resources */,
 				9BF409522AA61FBC00285071 /* Assets.xcassets in Resources */,
+				9B95123C2AA6AA710038343F /* FlightInfo.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,8 +343,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BF409502AA61FBB00285071 /* ContentView.swift in Sources */,
+				9B9512432AA6B8220038343F /* APIService.swift in Sources */,
+				9B9512582AA7EE990038343F /* ContentViewModel.swift in Sources */,
+				9B9512542AA706B40038343F /* FlightOpratInfoListResponse.swift in Sources */,
+				9B9512522AA6FC050038343F /* ContentView.swift in Sources */,
+				9B9512492AA6C54D0038343F /* HomeViewModel.swift in Sources */,
+				9B95124C2AA6E17D0038343F /* AirmanListResponse.swift in Sources */,
+				9B95123E2AA6ABA90038343F /* flight-information++Bundle.swift in Sources */,
+				9B9512352AA69FC90038343F /* FavoritesView.swift in Sources */,
+				9B95122A2AA69BBB0038343F /* ViewModelable.swift in Sources */,
+				9B9512332AA69FB90038343F /* HomeView.swift in Sources */,
 				9BF4094E2AA61FBB00285071 /* flight_informationApp.swift in Sources */,
+				9B9512472AA6C37E0038343F /* ArprtListResponse.swift in Sources */,
+				9B95122E2AA69E270038343F /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -420,6 +517,7 @@
 				DEVELOPMENT_TEAM = NN86XHW782;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "flight-information/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -449,6 +547,7 @@
 				DEVELOPMENT_TEAM = NN86XHW782;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "flight-information/Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -583,6 +682,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9B95123F2AA6B1E80038343F /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		9B9512592AA7EF7C0038343F /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9B9512402AA6B1E80038343F /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9B95123F2AA6B1E80038343F /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		9B95125A2AA7EF7C0038343F /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9B9512592AA7EF7C0038343F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		9B95125C2AA7EF7C0038343F /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9B9512592AA7EF7C0038343F /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9BF409422AA61FBB00285071 /* Project object */;
 }
