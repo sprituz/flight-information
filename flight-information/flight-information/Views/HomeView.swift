@@ -11,7 +11,7 @@ struct HomeView: View {
     @ObservedObject var homeViewModel:HomeViewModel = HomeViewModel()
     @State private var searchText: String = ""
     @State private var dropDownFor: String = ""
-    @State private var showing = false
+    @State private var sameAirportAlert = false
     
     init(){
     }
@@ -57,8 +57,8 @@ struct HomeView: View {
                 print(self.homeViewModel.selectedDepartAirport)
                 print(self.homeViewModel.selectedDate.description)
                 print(self.homeViewModel.selectedAirline)
-                if (self.homeViewModel.flightInfo.isEmpty) {
-                    showing = true
+                if (self.homeViewModel.selectedArriveAirport?.airportId == self.homeViewModel.selectedDepartAirport?.airportId) {
+                    sameAirportAlert = true
                 }
             }, label: {
                 HStack {
@@ -68,10 +68,17 @@ struct HomeView: View {
             })
             .buttonStyle(.borderedProminent)
             .disabled(self.homeViewModel.selectedArriveAirport == nil || self.homeViewModel.selectedDepartAirport == nil || self.homeViewModel.selectedAirline == nil)
-            .alert(isPresented: $showing) {
-                Alert(title: Text("해당 일정의 항공운항정보가 없습니다"), message: nil,
+            
+//            .alert(isPresented: $noFlightAlert) {
+//                Alert(title: Text("해당 일정의 항공운항정보가 없습니다"), message: nil,
+//                      dismissButton: .default(Text("확인")))
+//            }
+            
+            .alert(isPresented: $sameAirportAlert) {
+                Alert(title: Text("출발공항과 도착공항을 다르게 설정해주세요."), message: nil,
                       dismissButton: .default(Text("확인")))
             }
+            
         }
         .onAppear{
             self.homeViewModel.getAirportList()
