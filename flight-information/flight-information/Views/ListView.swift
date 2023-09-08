@@ -23,9 +23,11 @@ struct flightRow: View {
                 }
             }
             Spacer()
-            Image(systemName: "star.fill")
-                .imageScale(.medium)
-                .foregroundColor(.gray)
+            Button(action:{print("즐겨찾기")}){
+                Image(systemName: "star.fill")
+                    .imageScale(.medium)
+                    .foregroundColor(.gray)
+            }
         }
 
     }
