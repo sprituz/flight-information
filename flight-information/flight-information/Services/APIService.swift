@@ -27,14 +27,14 @@ enum API{
     case getArprtList
     case getAirmanList
     
-    var url: URL{
+    var url: String{
         
         switch self {
-        case .getFlightOpratInfoList: return URL(string: "http://apis.data.go.kr/1613000/DmstcFlightNvgInfoService/getFlightOpratInfoList")!
+        case .getFlightOpratInfoList: return "http://apis.data.go.kr/1613000/DmstcFlightNvgInfoService/getFlightOpratInfoList"
         
-        case .getArprtList: return URL(string: "http://apis.data.go.kr/1613000/DmstcFlightNvgInfoService/getArprtList?serviceKey=" + String(Bundle.main.FLIGHT_API_KEY) + "&_type=json")!
+        case .getArprtList: return "http://apis.data.go.kr/1613000/DmstcFlightNvgInfoService/getArprtList"
             
-        case .getAirmanList: return URL(string: "http://apis.data.go.kr/1613000/DmstcFlightNvgInfoService/getAirmanList?serviceKey=" + String(Bundle.main.FLIGHT_API_KEY) + "&_type=json")!
+        case .getAirmanList: return "http://apis.data.go.kr/1613000/DmstcFlightNvgInfoService/getAirmanList"
         }
     }
 }
@@ -47,16 +47,9 @@ enum ApiService {
                                        arrAirportId: String,
                                        depPlandTime:String,
                                        airlineId: String) -> AnyPublisher<FlightOpratInfoListResponse , Error> {
-        let queryItems = [
-            URLQueryItem(name: "serviceKey", value: String(Bundle.main.FLIGHT_API_KEY)),
-            URLQueryItem(name: "pageNo", value: "1"),
-            URLQueryItem(name: "numOfRows", value: "10000"),
-            URLQueryItem(name: "_type", value: "json"),
-            URLQueryItem(name: "depAirportId", value: depAirportId),
-                          URLQueryItem(name: "arrAirportId", value: arrAirportId),
-                         URLQueryItem(name: "depPlandTime", value: depPlandTime),
-                         URLQueryItem(name: "airlineId", value: airlineId)]
-        let newUrl = API.getFlightOpratInfoList.url.appending(queryItems: queryItems)
+        
+        
+        let newUrl = URL(string: API.getFlightOpratInfoList.url + "?serviceKey=\(Bundle.main.FLIGHT_API_KEY)&pageNo=1&numOfRows=10000&_type=json&depAirportId=\(depAirportId)&arrAirportId=\(arrAirportId)&depPlandTime=\(depPlandTime)&airlineId=\(airlineId)")!
         return AF.request(newUrl)
             .publishDecodable(type: FlightOpratInfoListResponse.self) //디코딩
             .value() // 값만 가져오기
@@ -70,7 +63,8 @@ enum ApiService {
     ///  공항 목록 가져오기
     /// - Returns: AnyPublisher<ArprtListResponse, Error>
     static func getArprtList() -> AnyPublisher<ArprtListResponse , Error> {
-        return AF.request(API.getArprtList.url)
+        let newUrl = URL(string: API.getArprtList.url + "?serviceKey=\(Bundle.main.FLIGHT_API_KEY)&_type=json")!
+        return AF.request(newUrl)
             .publishDecodable(type: ArprtListResponse.self) //디코딩
             .value() // 값만 가져오기
             .mapError { (afError:AFError) in
@@ -83,7 +77,8 @@ enum ApiService {
     ///  항공사 목록 가져오기
     /// - Returns: AnyPublisher<AirmanListResponse, Error>
     static func getAirmanList() -> AnyPublisher<AirmanListResponse , Error> {
-        return AF.request(API.getAirmanList.url)
+        let newUrl = URL(string: API.getAirmanList.url + "?serviceKey=\(Bundle.main.FLIGHT_API_KEY)&_type=json")!
+        return AF.request(newUrl)
             .publishDecodable(type: AirmanListResponse.self) //디코딩
             .value() // 값만 가져오기
             .mapError { (afError:AFError) in
