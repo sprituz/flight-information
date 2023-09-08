@@ -25,7 +25,7 @@ struct FlightOpratInfoItems: Codable {
     let item: [FlightOpratInfo]
 }
 
-struct FlightOpratInfo : Codable, Hashable{
+struct FlightOpratInfo : Codable, Hashable, Equatable{
     var airlineNm : String
     var arrAirportNm : String
     var arrPlandTime : Int
