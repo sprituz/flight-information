@@ -56,7 +56,7 @@ struct HomeView: View {
                 }
             }, label: {
                 HStack {
-                    Text("조회")
+                    Text("검색")
                 }
                 .fixedSize()
             })
@@ -66,7 +66,7 @@ struct HomeView: View {
                 Alert(title: Text("출발공항과 도착공항을 다르게 설정해주세요."), message: nil,
                       dismissButton: .default(Text("확인")))
             }
-            if self.homeViewModel.isFinished {
+            .popover(isPresented: $homeViewModel.isFinished) {
                 ListView(flightInfos: $homeViewModel.flightInfo)
             }
         }

@@ -10,17 +10,24 @@ import SwiftUI
 struct flightRow: View {
     var flightInfo: FlightOpratInfo
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("\(flightInfo.depAirportNm) -> \(flightInfo.arrAirportNm) (\(flightInfo.airlineNm))" )
-            HStack {
-                Text("출발일:" + (String(flightInfo.depPlandTime).toDate()?.formatted("yyyy/MM/dd") ?? ""))
-                Text("출발시간:" + (String(flightInfo.depPlandTime).toDate()?.formatted(date: .omitted, time: .shortened) ?? ""))
+        HStack {
+            VStack(alignment: .leading) {
+                Text("\(flightInfo.depAirportNm) -> \(flightInfo.arrAirportNm) (\(flightInfo.airlineNm))" )
+                HStack {
+                    Text("출발일:" + (String(flightInfo.depPlandTime).toDate()?.formatted("yyyy/MM/dd") ?? ""))
+                    Text("출발시간:" + (String(flightInfo.depPlandTime).toDate()?.formatted(date: .omitted, time: .shortened) ?? ""))
+                }
+                HStack {
+                    Text("도착일:" + (String(flightInfo.arrPlandTime).toDate()?.formatted("yyyy/MM/dd") ?? ""))
+                    Text("도착시간:" + (String(flightInfo.arrPlandTime).toDate()?.formatted(date: .omitted, time: .shortened) ?? ""))
+                }
             }
-            HStack {
-                Text("도착일:" + (String(flightInfo.arrPlandTime).toDate()?.formatted("yyyy/MM/dd") ?? ""))
-                Text("도착시간:" + (String(flightInfo.arrPlandTime).toDate()?.formatted(date: .omitted, time: .shortened) ?? ""))
-            }
+            Spacer()
+            Image(systemName: "star.fill")
+                .imageScale(.medium)
+                .foregroundColor(.gray)
         }
+
     }
 }
 
@@ -31,13 +38,14 @@ struct ListView: View {
             Text("해당하는 일정의 항공 운항정보가 없습니다")
         }
         else {
-            List {
-                ForEach(flightInfos, id: \.self) { flightInfo in
-                    flightRow(flightInfo: flightInfo)
+            NavigationView {
+                List(flightInfos, id: \.self) { flightInfo in
+                    NavigationLink(destination: FlightDetailView(flightInfo: flightInfo)) {
+                        flightRow(flightInfo: flightInfo)
+                    }
                 }
             }
         }
-
     }
 }
 
