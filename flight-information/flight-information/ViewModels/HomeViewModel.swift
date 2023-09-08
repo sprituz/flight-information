@@ -19,6 +19,7 @@ class HomeViewModel: ObservableObject {
     @Published var selectedDate: Date = Date()
     @Published var airportList: [Airport] = []
     @Published var airlineList: [Airline] = []
+    @Published var isFinished: Bool = false
 
     
     func getFlightOpratInfoList(){
@@ -31,6 +32,7 @@ class HomeViewModel: ObservableObject {
                     self.flightInfo = []
                 case .finished:
                     print("get flight info Finish")
+                    self.isFinished = true
                 }
                 
             } receiveValue: { (response: FlightOpratInfoListResponse) in
