@@ -12,7 +12,6 @@ struct HomeView: View {
     @State private var searchText: String = ""
     @State private var dropDownFor: String = ""
     @State private var sameAirportAlert = false
-    
     init(){
     }
     
@@ -53,10 +52,6 @@ struct HomeView: View {
             Button(action: {
                 print("조회")
                 self.homeViewModel.getFlightOpratInfoList()
-                print(self.homeViewModel.selectedArriveAirport)
-                print(self.homeViewModel.selectedDepartAirport)
-                print(self.homeViewModel.selectedDate.description)
-                print(self.homeViewModel.selectedAirline)
                 if (self.homeViewModel.selectedArriveAirport?.airportId == self.homeViewModel.selectedDepartAirport?.airportId) {
                     sameAirportAlert = true
                 }
@@ -78,7 +73,7 @@ struct HomeView: View {
                 Alert(title: Text("출발공항과 도착공항을 다르게 설정해주세요."), message: nil,
                       dismissButton: .default(Text("확인")))
             }
-            
+            ListView(flightInfos: $homeViewModel.flightInfo)
         }
         .onAppear{
             self.homeViewModel.getAirportList()
