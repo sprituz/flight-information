@@ -9,6 +9,11 @@ import SwiftUI
 
 struct RootView: View {
     @State private var selectedIndex: Int = 0
+    
+    init() {
+        UITabBar.appearance().backgroundColor = UIColor.white
+        }
+    
     var body: some View {
         TabView(selection: $selectedIndex) {
             HomeView()
