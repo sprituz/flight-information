@@ -22,15 +22,13 @@ class HomeViewModel: ObservableObject {
 
     
     func getFlightOpratInfoList(){
-        let myDateFormatter = DateFormatter()
-        myDateFormatter.dateFormat = "yyyyMMdd"
-        let convertDateStr = myDateFormatter.string(from: selectedDate) // 선택된 시간의 Date를 format에 맞춰 string으로 반환
-        ApiService.getFlightOpratInfoList(depAirportId: selectedDepartAirport?.airportId ?? "", arrAirportId: selectedArriveAirport?.airportId ?? "", depPlandTime: convertDateStr, airlineId: selectedAirline?.airlineId ?? "")
+        ApiService.getFlightOpratInfoList(depAirportId: selectedDepartAirport?.airportId ?? "", arrAirportId: selectedArriveAirport?.airportId ?? "", depPlandTime: selectedDate.formatted("yyyyMMdd"), airlineId: selectedAirline?.airlineId ?? "")
             .sink { completion in
                 
                 switch completion {
                 case .failure(let err):
                     print("\(err)")
+                    self.flightInfo = []
                 case .finished:
                     print("get flight info Finish")
                 }
