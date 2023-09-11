@@ -7,8 +7,11 @@
 
 import SwiftUI
 
+
 struct flightRow: View {
     var flightInfo: FlightOpratInfo
+    private let database = DataBaseManager.shared
+    
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
@@ -22,16 +25,28 @@ struct flightRow: View {
                     Text("도착시간:" + (String(flightInfo.arrPlandTime).toDate()?.formatted(date: .omitted, time: .shortened) ?? ""))
                 }
             }
+            .contentShape(Rectangle())
+//            .onTapGesture {
+//                print("Show details for user")
+//                isTapped = true
+//            }
             Spacer()
-            Button(action:{print("즐겨찾기")}){
+            
+            Button(action:{
+                print("즐겨찾기")
+                let task = FavoritesEntity(uuid: UUID(), airlineNm: flightInfo.airlineNm, arrAirportNm: flightInfo.arrAirportNm, arrPlandTime: flightInfo.arrPlandTime, depAirportNm: flightInfo.depAirportNm, depPlandTime: flightInfo.depPlandTime, economyCharge: flightInfo.economyCharge, prestigeCharge: flightInfo.prestigeCharge, vihicleId: flightInfo.vihicleId)
+                database.getLocationOfDefaultRealm()
+                database.write(task)
+            }){
                 Image(systemName: "star.fill")
                     .imageScale(.medium)
                     .foregroundColor(.gray)
-            }
+                
+            }.buttonStyle(BorderlessButtonStyle())
         }
-
     }
 }
+
 
 struct ListView: View {
     @Binding var flightInfos: [FlightOpratInfo]
@@ -51,8 +66,9 @@ struct ListView: View {
     }
 }
 
-//struct ListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ListView(flightInfos: Binding<[FlightOpratInfo(airlineNm: "아시아나", arrAirportNm: "제주", arrPlandTime: 202309071045, depAirportNm: "광주", depPlandTime: 202309070955, economyCharge: 57000, prestigeCharge: 0, vihicleId: "OZ8141")]>)
-//    }
-//}
+struct ListView_Previews: PreviewProvider {
+    @State static var value = [FlightOpratInfo(airlineNm: "아시아나", arrAirportNm: "제주", arrPlandTime: 202309071045, depAirportNm: "광주", depPlandTime: 202309070955, economyCharge: 57000, prestigeCharge: 0, vihicleId: "OZ8141")]
+    static var previews: some View {
+        ListView(flightInfos: $value)
+    }
+}

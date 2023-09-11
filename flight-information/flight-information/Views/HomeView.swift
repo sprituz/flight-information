@@ -75,7 +75,7 @@ struct HomeView: View {
                 self.homeViewModel.getAirportList()
                 self.homeViewModel.getAirlineList()
             }
-            .navigationBarTitle(Text("항공운항정보 조회").font(.subheadline), displayMode: .large)
+            .navigationBarTitle(Text("항공운항정보 조회"))
             //.navigationBarTitle (Text("Dashboard"), displayMode: .inline)
         }
         

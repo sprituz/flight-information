@@ -12,6 +12,13 @@ final class AirportEntity: Object {
     @objc dynamic var airportId: String = ""
     @objc dynamic var airportNm : String? = ""
     
+    override init() { }
+
+    init(airportId:String, airportNm: String) {
+        self.airportId = airportId
+        self.airportNm = airportNm
+       }
+    
     override static func primaryKey() -> String? {
       return "airportId"
     }

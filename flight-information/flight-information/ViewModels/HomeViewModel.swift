@@ -7,11 +7,14 @@
 
 import SwiftUI
 import Combine
+import RealmSwift
 
 class HomeViewModel: ObservableObject {
     
+    @Published var airlines: Results<AirlineEntity>?
+    @Published var airports: Results<AirportEntity>?
+    private var token: NotificationToken?
     var subscriptions = Set<AnyCancellable>()
-    
     @Published var flightInfo: [FlightOpratInfo] = []
     @Published var selectedDepartAirport: Airport? = nil
     @Published var selectedArriveAirport: Airport? = nil
@@ -20,6 +23,33 @@ class HomeViewModel: ObservableObject {
     @Published var airportList: [Airport] = []
     @Published var airlineList: [Airline] = []
     @Published var isFinished: Bool = false
+    
+    init() {
+            loadData()
+        }
+
+        func loadData() {
+            let realm = try! Realm()
+            airlines = realm.objects(AirlineEntity.self)
+            airports = realm.objects(AirportEntity.self)
+
+            // Set a notification to update the UI whenever the data changes
+            token = airlines?.observe { [weak self] _ in
+                self?.objectWillChange.send()
+            }
+            
+            // Check if data is empty and fetch if needed
+            if airports?.isEmpty ?? true {
+                getAirportList()
+            }
+            if airlines?.isEmpty ?? true {
+                getAirlineList()
+            }
+        }
+
+       deinit {
+           token?.invalidate()
+       }
 
     
     func getFlightOpratInfoList(){

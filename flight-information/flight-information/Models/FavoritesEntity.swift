@@ -8,7 +8,8 @@
 import Foundation
 import RealmSwift
 
-final class FavoritesEntity: Object {
+final class FavoritesEntity: Object, Identifiable {
+    @objc dynamic var uuid: UUID = UUID()
     @objc dynamic var airlineNm : String = ""
     @objc dynamic var arrAirportNm : String = ""
     @objc dynamic var arrPlandTime : Int = 0
@@ -17,4 +18,22 @@ final class FavoritesEntity: Object {
     @objc dynamic var economyCharge : Int = 0
     @objc dynamic var prestigeCharge : Int = 0
     @objc dynamic var vihicleId : String = ""
+    
+    override init() { }
+
+    init(uuid: UUID, airlineNm: String, arrAirportNm: String, arrPlandTime: Int,depAirportNm:String,depPlandTime:Int, economyCharge:Int,prestigeCharge:Int, vihicleId:String) {
+        self.uuid = uuid
+        self.airlineNm = airlineNm
+        self.arrAirportNm = arrAirportNm
+        self.arrPlandTime = arrPlandTime
+        self.depAirportNm = depAirportNm
+        self.depPlandTime = depPlandTime
+        self.economyCharge = economyCharge
+        self.prestigeCharge = prestigeCharge
+        self.vihicleId = vihicleId
+       }
+
+       override class func primaryKey() -> String? {
+           "uuid"
+       }
 }
