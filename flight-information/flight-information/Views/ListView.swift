@@ -11,6 +11,7 @@ import SwiftUI
 struct flightRow: View {
     var flightInfo: FlightOpratInfo
     @ObservedObject var flightRowModel:FlightRowModel = FlightRowModel()
+    @State var isFavorite:Bool = false
     
     var body: some View {
         HStack {
@@ -29,17 +30,21 @@ struct flightRow: View {
             Spacer()
             Button(action:{
                 print("즐겨찾기")
-                if (flightRowModel.checkFavorite(flightInfo: flightInfo)) {
+                if (isFavorite) {
                     flightRowModel.deleteFavorites(flightInfo: flightInfo)
+                    isFavorite = false
                 } else {
                     flightRowModel.addFavorites(flightInfo: flightInfo)
+                    isFavorite = true
                 }
-               
             }){
                 Image(systemName: "star.fill")
                     .imageScale(.medium)
-                    .foregroundColor(.gray)
+                    .foregroundColor(isFavorite == true ? .yellow : .gray)
             }.buttonStyle(BorderlessButtonStyle())
+        }
+        .onAppear {
+            isFavorite = self.flightRowModel.checkFavorite(flightInfo: flightInfo)
         }
     }
 }
