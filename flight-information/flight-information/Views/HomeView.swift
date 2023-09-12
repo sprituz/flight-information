@@ -51,7 +51,7 @@ struct HomeView: View {
                 
                 Button(action: {
                     print("조회")
-                    self.homeViewModel.getFlightOpratInfoList()
+                    self.homeViewModel.flightOpratInfo()
                     if (self.homeViewModel.selectedArriveAirport?.airportId == self.homeViewModel.selectedDepartAirport?.airportId) {
                         sameAirportAlert.toggle()
                     }
@@ -72,11 +72,10 @@ struct HomeView: View {
                 }
             }
             .onAppear{
-                self.homeViewModel.getAirportList()
-                self.homeViewModel.getAirlineList()
+                self.homeViewModel.airport()
+                self.homeViewModel.airline()
             }
             .navigationBarTitle(Text("항공운항정보 조회"))
-            //.navigationBarTitle (Text("Dashboard"), displayMode: .inline)
         }
         
     }

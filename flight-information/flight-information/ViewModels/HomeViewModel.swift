@@ -23,36 +23,38 @@ class HomeViewModel: ObservableObject {
     @Published var airportList: [Airport] = []
     @Published var airlineList: [Airline] = []
     @Published var isFinished: Bool = false
+    private let database = DataBaseManager.shared
     
     init() {
-            loadData()
-        }
-
-        func loadData() {
-            let realm = try! Realm()
-            airlines = realm.objects(AirlineEntity.self)
-            airports = realm.objects(AirportEntity.self)
-
-            // Set a notification to update the UI whenever the data changes
-            token = airlines?.observe { [weak self] _ in
-                self?.objectWillChange.send()
-            }
-            
-            // Check if data is empty and fetch if needed
-            if airports?.isEmpty ?? true {
-                getAirportList()
-            }
-            if airlines?.isEmpty ?? true {
-                getAirlineList()
-            }
-        }
-
-       deinit {
-           token?.invalidate()
-       }
-
+        loadData()
+    }
     
-    func getFlightOpratInfoList(){
+    func loadData() {
+        airlines = database.read(AirlineEntity.self)
+        airports = database.read(AirportEntity.self)
+        
+        // Set a notification to update the UI whenever the data changes
+        token = airlines?.observe { [weak self] _ in
+            self?.objectWillChange.send()
+        }
+        
+        token = airports?.observe { [weak self] _ in
+            self?.objectWillChange.send()
+        }
+        
+        if airlines?.isEmpty ?? true {
+            airline()
+            airport()
+        }
+        
+    }
+    
+    deinit {
+        token?.invalidate()
+    }
+    
+    
+    func flightOpratInfo(){
         ApiService.getFlightOpratInfoList(depAirportId: selectedDepartAirport?.airportId ?? "", arrAirportId: selectedArriveAirport?.airportId ?? "", depPlandTime: selectedDate.formatted("yyyyMMdd"), airlineId: selectedAirline?.airlineId ?? "")
             .sink { completion in
                 
@@ -73,7 +75,7 @@ class HomeViewModel: ObservableObject {
         
     }
     
-    func getAirportList() {
+    func airport() {
         ApiService.getArprtList()
             .receive(on: DispatchQueue.main)
             .sink { completion in
@@ -85,7 +87,7 @@ class HomeViewModel: ObservableObject {
             .store(in: &subscriptions)
     }
     
-    func getAirlineList() {
+    func airline() {
         ApiService.getAirmanList()
             .receive(on: DispatchQueue.main)
             .sink { completion in

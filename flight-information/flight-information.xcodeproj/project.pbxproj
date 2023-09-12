@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B435CAC2AAFD5B100F92B0B /* FlightRowModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B435CAB2AAFD5B100F92B0B /* FlightRowModel.swift */; };
 		9B95122E2AA69E270038343F /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B95122D2AA69E270038343F /* RootView.swift */; };
 		9B9512332AA69FB90038343F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512322AA69FB90038343F /* HomeView.swift */; };
 		9B9512352AA69FC90038343F /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512342AA69FC80038343F /* FavoritesView.swift */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B435CAB2AAFD5B100F92B0B /* FlightRowModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightRowModel.swift; sourceTree = "<group>"; };
 		9B95122D2AA69E270038343F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		9B9512322AA69FB90038343F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9B9512342AA69FC80038343F /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			children = (
 				9B9512482AA6C54D0038343F /* HomeViewModel.swift */,
 				9BD921622AAE95080087B028 /* FavoritesViewModel.swift */,
+				9B435CAB2AAFD5B100F92B0B /* FlightRowModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -396,6 +399,7 @@
 				9B9512702AA9B8ED0038343F /* FlightDetailView.swift in Sources */,
 				9B95126E2AA9B4650038343F /* FavoritesEntity.swift in Sources */,
 				9B95125F2AA8121A0038343F /* ListView.swift in Sources */,
+				9B435CAC2AAFD5B100F92B0B /* FlightRowModel.swift in Sources */,
 				9BF4094E2AA61FBB00285071 /* flight_informationApp.swift in Sources */,
 				9B9512662AA9A9DA0038343F /* Date+.swift in Sources */,
 				9B9512472AA6C37E0038343F /* ArprtListResponse.swift in Sources */,
