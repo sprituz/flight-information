@@ -10,7 +10,7 @@ import SwiftUI
 
 struct flightRow: View {
     var flightInfo: FlightOpratInfo
-    private let database = DataBaseManager.shared
+    @ObservedObject var flightRowModel:FlightRowModel = FlightRowModel()
     
     var body: some View {
         HStack {
@@ -26,22 +26,19 @@ struct flightRow: View {
                 }
             }
             .contentShape(Rectangle())
-//            .onTapGesture {
-//                print("Show details for user")
-//                isTapped = true
-//            }
             Spacer()
-            
             Button(action:{
                 print("즐겨찾기")
-                let task = FavoritesEntity(uuid: UUID(), airlineNm: flightInfo.airlineNm, arrAirportNm: flightInfo.arrAirportNm, arrPlandTime: flightInfo.arrPlandTime, depAirportNm: flightInfo.depAirportNm, depPlandTime: flightInfo.depPlandTime, economyCharge: flightInfo.economyCharge, prestigeCharge: flightInfo.prestigeCharge, vihicleId: flightInfo.vihicleId)
-                database.getLocationOfDefaultRealm()
-                database.write(task)
+                if (flightRowModel.checkFavorite(flightInfo: flightInfo)) {
+                    flightRowModel.deleteFavorites(flightInfo: flightInfo)
+                } else {
+                    flightRowModel.addFavorites(flightInfo: flightInfo)
+                }
+               
             }){
                 Image(systemName: "star.fill")
                     .imageScale(.medium)
                     .foregroundColor(.gray)
-                
             }.buttonStyle(BorderlessButtonStyle())
         }
     }

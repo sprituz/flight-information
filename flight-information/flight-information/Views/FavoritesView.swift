@@ -13,8 +13,8 @@ struct FavoritesView: View {
     var body: some View {
         NavigationView {
             List {
-                if let favoriteInfos = favoritesViewModel.favoriteInfos {
-                    ForEach(favoriteInfos) { favorite in
+                if let favoriteInfos = favoritesViewModel.favoriteInfos?.freeze() {
+                    ForEach(favoriteInfos, id: \.uuid) { favorite in
                         let flightInfo:FlightOpratInfo = FlightOpratInfo(airlineNm: favorite.airlineNm, arrAirportNm: favorite.arrAirportNm, arrPlandTime: favorite.arrPlandTime, depAirportNm: favorite.depAirportNm, depPlandTime: favorite.depPlandTime, economyCharge: favorite.economyCharge, prestigeCharge: favorite.prestigeCharge, vihicleId: favorite.vihicleId)
                         NavigationLink(destination: FlightDetailView(flightInfo: flightInfo)) {
                             flightRow(flightInfo: flightInfo)
