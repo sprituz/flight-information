@@ -62,7 +62,7 @@ class HomeViewModel: ObservableObject {
                 case .failure(let err):
                     print("\(err)")
                     self.flightInfo = []
-                    self.isFinished = false
+                    self.isFinished = true
                 case .finished:
                     print("get flight info Finish")
                     self.isFinished = true

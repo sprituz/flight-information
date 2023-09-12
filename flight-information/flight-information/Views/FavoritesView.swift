@@ -14,14 +14,19 @@ struct FavoritesView: View {
         NavigationView {
             List {
                 if let favoriteInfos = favoritesViewModel.favoriteInfos?.freeze() {
-                    ForEach(favoriteInfos, id: \.uuid) { favorite in
-                        let flightInfo:FlightOpratInfo = FlightOpratInfo(airlineNm: favorite.airlineNm, arrAirportNm: favorite.arrAirportNm, arrPlandTime: favorite.arrPlandTime, depAirportNm: favorite.depAirportNm, depPlandTime: favorite.depPlandTime, economyCharge: favorite.economyCharge, prestigeCharge: favorite.prestigeCharge, vihicleId: favorite.vihicleId)
-                        NavigationLink(destination: FlightDetailView(flightInfo: flightInfo)) {
-                            flightRow(flightInfo: flightInfo)
+                    if favoriteInfos.isEmpty {
+                        Text("즐겨찾기한 항공운항정보가 없습니다.")
+                    }
+                    else {
+                        ForEach(favoriteInfos, id: \.uuid) { favorite in
+                            let flightInfo:FlightOpratInfo = FlightOpratInfo(airlineNm: favorite.airlineNm, arrAirportNm: favorite.arrAirportNm, arrPlandTime: favorite.arrPlandTime, depAirportNm: favorite.depAirportNm, depPlandTime: favorite.depPlandTime, economyCharge: favorite.economyCharge, prestigeCharge: favorite.prestigeCharge, vihicleId: favorite.vihicleId)
+                            NavigationLink(destination: FlightDetailView(flightInfo: flightInfo)) {
+                                flightRow(flightInfo: flightInfo)
+                            }
                         }
                     }
                 } else {
-                    Text("No data available")
+                    Text("데이터를 받아오는 데 실패하였습니다.")
                 }
             }
             .navigationTitle(Text("즐겨찾기"))
