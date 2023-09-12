@@ -24,6 +24,7 @@ struct FavoritesView: View {
                     Text("No data available")
                 }
             }
+            .navigationTitle(Text("즐겨찾기"))
         }
     }
 }
