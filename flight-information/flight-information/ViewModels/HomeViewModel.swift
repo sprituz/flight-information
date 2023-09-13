@@ -32,7 +32,6 @@ class HomeViewModel: ObservableObject {
     func loadData() {
         airlines = database.read(AirlineEntity.self)
         airports = database.read(AirportEntity.self)
-        
         // Set a notification to update the UI whenever the data changes
         token = airlines?.observe { [weak self] _ in
             self?.objectWillChange.send()
@@ -43,10 +42,22 @@ class HomeViewModel: ObservableObject {
         }
         
         if airlines?.isEmpty ?? true {
+            print("airlines empty")
             airline()
-            airport()
+        } else {
+            airlines?.forEach {
+                airlineList.append(Airline(airlineId: $0.airlineId, airlineNm: $0.airlineNm ?? ""))
+            }
         }
         
+        if airports?.isEmpty ?? true {
+            print("airports empty")
+            airport()
+        } else {
+            airports?.forEach {
+                airportList.append(Airport(airportId: $0.airportId, airportNm: $0.airportNm ?? ""))
+            }
+        }
     }
     
     deinit {
@@ -82,6 +93,10 @@ class HomeViewModel: ObservableObject {
                 print("airport completion: \(completion)")
             } receiveValue: { airportListResponse in
                 let airportList = airportListResponse.response.body.items.item
+                airportList.forEach {
+                    let task = AirportEntity(airportId: $0.airportId, airportNm: $0.airportNm)
+                    self.database.write(task)
+                }
                 self.airportList = airportList
             }
             .store(in: &subscriptions)
@@ -94,6 +109,10 @@ class HomeViewModel: ObservableObject {
                 print("airline completion: \(completion)")
             } receiveValue: { airlineListResponse in
                 let airlineList = airlineListResponse.response.body.items.item
+                airlineList.forEach {
+                    let task = AirlineEntity(airlineId: $0.airlineId, airlineNm: $0.airlineNm)
+                    self.database.write(task)
+                }
                 self.airlineList = airlineList
             }
             .store(in: &subscriptions)

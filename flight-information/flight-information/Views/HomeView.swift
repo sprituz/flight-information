@@ -11,36 +11,28 @@ struct HomeView: View {
     @ObservedObject var homeViewModel:HomeViewModel = HomeViewModel()
     @State private var sameAirportAlert = false
     
-    init(){
-    }
-    
     var body: some View {
         NavigationView {
             VStack(spacing: 10){
                 Text("출발공항")
-                
                 DropdownView(selected: $homeViewModel.selectedDepartAirport,
                              list: $homeViewModel.airportList) { airport in
                     "\(airport.airportNm)"
                 }contentAppearance: { airport in
                     Text("\(airport.airportNm)")
                 }.frame(width: 250)
-                
                 Text("도착공항")
-                
                 DropdownView(selected: $homeViewModel.selectedArriveAirport,
                              list: $homeViewModel.airportList) { airport in
                     "\(airport.airportNm)"
                 }contentAppearance: { airport in
                     Text("\(airport.airportNm)")
                 }.frame(width: 250)
-                
                 DatePicker(
                     "출발일",
                     selection: $homeViewModel.selectedDate,
                     displayedComponents: [.date]
                 ).frame(width: 200)
-                
                 Text("항공사")
                 DropdownView(selected: $homeViewModel.selectedAirline,
                              list: $homeViewModel.airlineList) { airline in
@@ -48,7 +40,6 @@ struct HomeView: View {
                 }contentAppearance: { airline in
                     Text("\(airline.airlineNm)")
                 }.frame(width: 250)
-                
                 Button(action: {
                     print("조회")
                     self.homeViewModel.flightOpratInfo()
@@ -70,10 +61,6 @@ struct HomeView: View {
                 .popover(isPresented: $homeViewModel.isFinished) {
                     ListView(flightInfos: $homeViewModel.flightInfo)
                 }
-            }
-            .onAppear{
-                self.homeViewModel.airport()
-                self.homeViewModel.airline()
             }
             .navigationBarTitle(Text("항공운항정보 조회"))
         }
