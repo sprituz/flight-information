@@ -30,6 +30,8 @@
 		9B95126E2AA9B4650038343F /* FavoritesEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B95126D2AA9B4650038343F /* FavoritesEntity.swift */; };
 		9B9512702AA9B8ED0038343F /* FlightDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B95126F2AA9B8ED0038343F /* FlightDetailView.swift */; };
 		9B9512732AAB0ACE0038343F /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512722AAB0ACE0038343F /* DataBaseManager.swift */; };
+		9B97CA2F2AB19A32001D66E9 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 9B97CA2E2AB19A32001D66E9 /* AlertToast */; };
+		9B97CA312AB1A067001D66E9 /* Binding+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B97CA302AB1A067001D66E9 /* Binding+.swift */; };
 		9BD921632AAE95080087B028 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD921622AAE95080087B028 /* FavoritesViewModel.swift */; };
 		9BF4094E2AA61FBB00285071 /* flight_informationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF4094D2AA61FBB00285071 /* flight_informationApp.swift */; };
 		9BF409522AA61FBC00285071 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BF409512AA61FBC00285071 /* Assets.xcassets */; };
@@ -78,6 +80,7 @@
 		9B95126D2AA9B4650038343F /* FavoritesEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesEntity.swift; sourceTree = "<group>"; };
 		9B95126F2AA9B8ED0038343F /* FlightDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightDetailView.swift; sourceTree = "<group>"; };
 		9B9512722AAB0ACE0038343F /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
+		9B97CA302AB1A067001D66E9 /* Binding+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+.swift"; sourceTree = "<group>"; };
 		9BD921622AAE95080087B028 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		9BF4094A2AA61FBB00285071 /* flight-information.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "flight-information.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BF4094D2AA61FBB00285071 /* flight_informationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flight_informationApp.swift; sourceTree = "<group>"; };
@@ -96,6 +99,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9B95125D2AA7EF7C0038343F /* RealmSwift in Frameworks */,
+				9B97CA2F2AB19A32001D66E9 /* AlertToast in Frameworks */,
 				9B95125B2AA7EF7C0038343F /* Realm in Frameworks */,
 				9B9512412AA6B1E80038343F /* Alamofire in Frameworks */,
 			);
@@ -168,6 +172,7 @@
 				9B95123D2AA6ABA90038343F /* flight-information++Bundle.swift */,
 				9B9512632AA985900038343F /* String+.swift */,
 				9B9512652AA9A9DA0038343F /* Date+.swift */,
+				9B97CA302AB1A067001D66E9 /* Binding+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 				9B9512402AA6B1E80038343F /* Alamofire */,
 				9B95125A2AA7EF7C0038343F /* Realm */,
 				9B95125C2AA7EF7C0038343F /* RealmSwift */,
+				9B97CA2E2AB19A32001D66E9 /* AlertToast */,
 			);
 			productName = "flight-information";
 			productReference = 9BF4094A2AA61FBB00285071 /* flight-information.app */;
@@ -339,6 +345,7 @@
 			packageReferences = (
 				9B95123F2AA6B1E80038343F /* XCRemoteSwiftPackageReference "Alamofire" */,
 				9B9512592AA7EF7C0038343F /* XCRemoteSwiftPackageReference "realm-swift" */,
+				9B97CA2D2AB19A32001D66E9 /* XCRemoteSwiftPackageReference "AlertToast" */,
 			);
 			productRefGroup = 9BF4094B2AA61FBB00285071 /* Products */;
 			projectDirPath = "";
@@ -390,6 +397,7 @@
 				9B9512642AA985900038343F /* String+.swift in Sources */,
 				9B95124C2AA6E17D0038343F /* AirmanListResponse.swift in Sources */,
 				9B95123E2AA6ABA90038343F /* flight-information++Bundle.swift in Sources */,
+				9B97CA312AB1A067001D66E9 /* Binding+.swift in Sources */,
 				9B435CAE2AB1529F00F92B0B /* AirlineEntity.swift in Sources */,
 				9B9512352AA69FC90038343F /* FavoritesView.swift in Sources */,
 				9BD921632AAE95080087B028 /* FavoritesViewModel.swift in Sources */,
@@ -748,6 +756,14 @@
 				kind = branch;
 			};
 		};
+		9B97CA2D2AB19A32001D66E9 /* XCRemoteSwiftPackageReference "AlertToast" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/elai950/AlertToast.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -765,6 +781,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9B9512592AA7EF7C0038343F /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		9B97CA2E2AB19A32001D66E9 /* AlertToast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9B97CA2D2AB19A32001D66E9 /* XCRemoteSwiftPackageReference "AlertToast" */;
+			productName = AlertToast;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

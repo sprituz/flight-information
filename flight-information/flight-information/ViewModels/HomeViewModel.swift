@@ -23,6 +23,7 @@ class HomeViewModel: ObservableObject {
     @Published var airportList: [Airport] = []
     @Published var airlineList: [Airline] = []
     @Published var isFinished: Bool = false
+    @Published var sameAirportAlert = false
     private let database = DataBaseManager.shared
     
     init() {
@@ -116,6 +117,14 @@ class HomeViewModel: ObservableObject {
                 self.airlineList = airlineList
             }
             .store(in: &subscriptions)
+    }
+    
+    func isSameAirPort() {
+        if (selectedDepartAirport == selectedArriveAirport) {
+            sameAirportAlert = true
+        } else {
+            sameAirportAlert = false
+        }
     }
     
 }

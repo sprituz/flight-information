@@ -6,11 +6,11 @@
 //
 
 import SwiftUI
+import AlertToast
 
 struct HomeView: View {
     @ObservedObject var homeViewModel:HomeViewModel = HomeViewModel()
-    @State private var sameAirportAlert = false
-    
+    @State var loading = false
     var body: some View {
         NavigationView {
             VStack(spacing: 10){
@@ -21,6 +21,9 @@ struct HomeView: View {
                 }contentAppearance: { airport in
                     Text("\(airport.airportNm)")
                 }.frame(width: 250)
+                    .toast(isPresenting: $loading) {
+                        AlertToast(type: .loading)
+                    }
                 Text("도착공항")
                 DropdownView(selected: $homeViewModel.selectedArriveAirport,
                              list: $homeViewModel.airportList) { airport in
@@ -42,10 +45,9 @@ struct HomeView: View {
                 }.frame(width: 250)
                 Button(action: {
                     print("조회")
+                    loading.toggle()
                     self.homeViewModel.flightOpratInfo()
-                    if (self.homeViewModel.selectedArriveAirport?.airportId == self.homeViewModel.selectedDepartAirport?.airportId) {
-                        sameAirportAlert.toggle()
-                    }
+                    homeViewModel.isSameAirPort()
                 }, label: {
                     HStack {
                         Text("검색")
@@ -53,13 +55,18 @@ struct HomeView: View {
                     .fixedSize()
                 })
                 .buttonStyle(.borderedProminent)
-                .disabled(self.homeViewModel.selectedArriveAirport == nil || self.homeViewModel.selectedDepartAirport == nil || self.homeViewModel.selectedAirline == nil)
-                .alert(isPresented: $sameAirportAlert) {
+                .disabled((self.homeViewModel.selectedArriveAirport == nil || self.homeViewModel.selectedDepartAirport == nil || self.homeViewModel.selectedAirline == nil) || loading)
+                
+                .alert(isPresented: $homeViewModel.sameAirportAlert) {
                     Alert(title: Text("출발공항과 도착공항을 다르게 설정해주세요."), message: nil,
                           dismissButton: .default(Text("확인")))
                 }
+                
                 .popover(isPresented: $homeViewModel.isFinished) {
                     ListView(flightInfos: $homeViewModel.flightInfo)
+                        .onDisappear {
+                            loading.toggle()
+                        }
                 }
             }
             .navigationBarTitle(Text("항공운항정보 조회"))
