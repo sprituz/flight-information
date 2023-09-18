@@ -33,7 +33,7 @@ class HomeViewModel: ObservableObject {
     func loadData() {
         airlines = database.read(AirlineEntity.self)
         airports = database.read(AirportEntity.self)
-        // Set a notification to update the UI whenever the data changes
+        // 데이터 바뀔때 UI update
         token = airlines?.observe { [weak self] _ in
             self?.objectWillChange.send()
         }

@@ -24,18 +24,16 @@ final class FavoritesViewModel: ObservableObject {
         self.selectedDepartAirport = "전체"
         self.selectedAirline = "전체"
         loadData()
+        //Realm 데이터 바뀌는 감지해서 데이터 다시 로드
         token = favoriteInfos?.observe { [weak self] (changes: RealmCollectionChange) in
             switch changes {
             case .initial:
-                // Results are now populated and can be accessed without blocking the UI
                 self?.loadData()
             case .update(_, let deletions, let insertions, let modifications):
-                // Query results have changed, so apply them to the UITableView
                 if !deletions.isEmpty || !insertions.isEmpty || !modifications.isEmpty {
                     self?.loadData()
                 }
             case .error(let error):
-                // An error occurred while opening the Realm file on the background worker thread
                 fatalError("\(error)")
             }
         }
@@ -59,7 +57,6 @@ final class FavoritesViewModel: ObservableObject {
         print("loadData")
         favoriteInfos = database.read(FavoritesEntity.self)
         dropdownList()
-        // Set a notification to update the dropdown list whenever the data changes
     }
     
     deinit {
