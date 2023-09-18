@@ -9,7 +9,7 @@ import SwiftUI
 import AlertToast
 
 struct HomeView: View {
-    @ObservedObject var homeViewModel:HomeViewModel = HomeViewModel()
+    @StateObject var homeViewModel:HomeViewModel = HomeViewModel()
     @State var loading = false
     var body: some View {
         NavigationView {

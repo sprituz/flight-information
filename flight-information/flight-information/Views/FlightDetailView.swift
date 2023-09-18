@@ -33,6 +33,6 @@ struct FlightDetailView: View {
 
 struct FlightDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        FlightDetailView(flightInfo: FlightOpratInfo(airlineNm: "아시아나항공", arrAirportNm: "제주", arrPlandTime: 202309081045, depAirportNm: "광주", depPlandTime: 202309080955, economyCharge: 57900, prestigeCharge: 120000, vihicleId: "OZ8141"))
+        FlightDetailView(flightInfo: FlightOpratInfo(airlineNm: "아시아나항공", arrAirportNm: "제주", arrPlandTime: 202309081045, depAirportNm: "광주", depPlandTime: 202309080955, economyCharge: 57900, prestigeCharge: 0, vihicleId: "OZ8141"))
     }
 }

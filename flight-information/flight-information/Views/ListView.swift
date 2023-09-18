@@ -10,7 +10,7 @@ import SwiftUI
 
 struct flightRow: View {
     var flightInfo: FlightOpratInfo
-    @ObservedObject var flightRowModel:FlightRowModel = FlightRowModel()
+    @StateObject var flightRowModel:FlightRowModel = FlightRowModel()
     @State var isFavorite:Bool = false
     
     var body: some View {
