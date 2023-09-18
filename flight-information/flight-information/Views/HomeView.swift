@@ -59,7 +59,7 @@ struct HomeView: View {
                 
                 .alert(isPresented: $homeViewModel.sameAirportAlert) {
                     Alert(title: Text("출발공항과 도착공항을 다르게 설정해주세요."), message: nil,
-                          dismissButton: .default(Text("확인")))
+                          dismissButton: .default(Text("확인")) {loading.toggle()})
                 }
                 
                 .popover(isPresented: $homeViewModel.isFinished) {
