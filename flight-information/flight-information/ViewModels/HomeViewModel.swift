@@ -42,7 +42,7 @@ class HomeViewModel: ObservableObject {
             self?.objectWillChange.send()
         }
         
-        if airlines?.isEmpty ?? true {
+        if airlineList.isEmpty {
             print("airlines empty")
             airline()
         } else {
@@ -51,7 +51,7 @@ class HomeViewModel: ObservableObject {
             }
         }
         
-        if airports?.isEmpty ?? true {
+        if airportList.isEmpty {
             print("airports empty")
             airport()
         } else {
