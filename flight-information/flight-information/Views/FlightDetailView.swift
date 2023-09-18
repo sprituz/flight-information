@@ -23,7 +23,8 @@ struct FlightDetailView: View {
                 Text("도착시간:" + (String(flightInfo.arrPlandTime).toDate()?.formatted(date: .omitted, time: .shortened) ?? ""))
             }
             Text("일반석운임: \(flightInfo.economyCharge)원")
-            Text("비즈니스석운임: \(flightInfo.prestigeCharge)원")
+            Text("비즈니스석운임: \(flightInfo.prestigeCharge == 0 ? "미운영": flightInfo.prestigeCharge.withCommas()+"원")")
+            
             Text("출발공항: \(flightInfo.depAirportNm)공항")
             Text("도착공항: \(flightInfo.arrAirportNm)공항")
         }
@@ -32,6 +33,6 @@ struct FlightDetailView: View {
 
 struct FlightDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        FlightDetailView(flightInfo: FlightOpratInfo(airlineNm: "아시아나항공", arrAirportNm: "제주", arrPlandTime: 202309081045, depAirportNm: "광주", depPlandTime: 202309080955, economyCharge: 57900, prestigeCharge: 0, vihicleId: "OZ8141"))
+        FlightDetailView(flightInfo: FlightOpratInfo(airlineNm: "아시아나항공", arrAirportNm: "제주", arrPlandTime: 202309081045, depAirportNm: "광주", depPlandTime: 202309080955, economyCharge: 57900, prestigeCharge: 120000, vihicleId: "OZ8141"))
     }
 }
