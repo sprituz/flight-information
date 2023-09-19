@@ -23,7 +23,7 @@ struct HomeView: View {
                     "\(airport.airportNm)"
                 }contentAppearance: { airport in
                     Text("\(airport.airportNm)")
-                }.frame(width: 250)
+                }.frame(width: 250, height: 40)
                     .toast(isPresenting: $loading) {
                         AlertToast(type: .loading)
                     }
@@ -33,24 +33,25 @@ struct HomeView: View {
                     "\(airport.airportNm)"
                 }contentAppearance: { airport in
                     Text("\(airport.airportNm)")
-                }.frame(width: 250)
+                }.frame(width: 250, height: 40)
                 DatePicker(
                     "출발일",
                     selection: $homeViewModel.selectedDate,
                     in: Date()...(date ?? Date()),
                     displayedComponents: [.date]
-                ).frame(width: 200)
+                ).frame(width: 250, height: 40)
                     .id(calendarId)
                     .onChange(of: homeViewModel.selectedDate, perform: { _ in
                         calendarId += 1
                     })
+                    .frame(width: 250, height: 40)
                 Text("항공사")
                 DropdownView(selected: $homeViewModel.selectedAirline,
                              list: $homeViewModel.airlineList) { airline in
                     "\(airline.airlineNm)"
                 }contentAppearance: { airline in
                     Text("\(airline.airlineNm)")
-                }.frame(width: 250)
+                }.frame(width: 250, height: 40)
                 Button(action: {
                     print("조회")
                     loading.toggle()
