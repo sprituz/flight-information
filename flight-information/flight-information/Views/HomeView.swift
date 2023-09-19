@@ -11,6 +11,8 @@ import AlertToast
 struct HomeView: View {
     @StateObject var homeViewModel:HomeViewModel = HomeViewModel()
     @State var loading = false
+    @State private var calendarId: Int = 0
+    
     var body: some View {
         NavigationView {
             VStack(spacing: 10){
@@ -36,47 +38,50 @@ struct HomeView: View {
                     selection: $homeViewModel.selectedDate,
                     displayedComponents: [.date]
                 ).frame(width: 200)
-                Text("항공사")
-                DropdownView(selected: $homeViewModel.selectedAirline,
-                             list: $homeViewModel.airlineList) { airline in
-                    "\(airline.airlineNm)"
-                }contentAppearance: { airline in
-                    Text("\(airline.airlineNm)")
-                }.frame(width: 250)
-                Button(action: {
-                    print("조회")
-                    loading.toggle()
-                    self.homeViewModel.flightOpratInfo()
-                    homeViewModel.isSameAirPort()
-                }, label: {
-                    HStack {
-                        Text("검색")
-                    }
-                    .fixedSize()
-                })
-                .buttonStyle(.borderedProminent)
-                .disabled((self.homeViewModel.selectedArriveAirport == nil || self.homeViewModel.selectedDepartAirport == nil || self.homeViewModel.selectedAirline == nil) || loading)
-                
-                .alert(isPresented: $homeViewModel.sameAirportAlert) {
-                    Alert(title: Text("출발공항과 도착공항을 다르게 설정해주세요."), message: nil,
-                          dismissButton: .default(Text("확인")) {loading.toggle()})
-                }
-                
-                .popover(isPresented: $homeViewModel.isFinished) {
-                    ListView(flightInfos: $homeViewModel.flightInfo)
-                        .onDisappear {
-                            loading.toggle()
+                    .id(calendarId)
+                    .onChange(of: homeViewModel.selectedDate, perform: { _ in
+                        calendarId += 1
+                    })
+                              Text("항공사")
+                              DropdownView(selected: $homeViewModel.selectedAirline,
+                                           list: $homeViewModel.airlineList) { airline in
+                        "\(airline.airlineNm)"
+                    }contentAppearance: { airline in
+                        Text("\(airline.airlineNm)")
+                    }.frame(width: 250)
+                              Button(action: {
+                        print("조회")
+                        loading.toggle()
+                        self.homeViewModel.flightOpratInfo()
+                        homeViewModel.isSameAirPort()
+                    }, label: {
+                        HStack {
+                            Text("검색")
                         }
-                }
-            }
-            .navigationBarTitle(Text("항공운항정보 조회"))
-        }
-        
-    }
-    
-    struct HomeView_Previews: PreviewProvider {
-        static var previews: some View {
-            HomeView()
-        }
-    }
-}
+                        .fixedSize()
+                    })
+                                .buttonStyle(.borderedProminent)
+                                .disabled((self.homeViewModel.selectedArriveAirport == nil || self.homeViewModel.selectedDepartAirport == nil || self.homeViewModel.selectedAirline == nil) || loading)
+                              
+                                .alert(isPresented: $homeViewModel.sameAirportAlert) {
+                                    Alert(title: Text("출발공항과 도착공항을 다르게 설정해주세요."), message: nil,
+                                          dismissButton: .default(Text("확인")) {loading.toggle()})
+                                }
+                              
+                        .popover(isPresented: $homeViewModel.isFinished) {
+                            ListView(flightInfos: $homeViewModel.flightInfo)
+                                .onDisappear {
+                                    loading.toggle()
+                                }
+                        }
+                              }
+                        .navigationBarTitle(Text("항공운항정보 조회"))
+                              }
+                              }
+                              
+                              struct HomeView_Previews: PreviewProvider {
+                        static var previews: some View {
+                            HomeView()
+                        }
+                    }
+                              }
