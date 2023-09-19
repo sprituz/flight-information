@@ -23,34 +23,39 @@ struct HomeView: View {
                     "\(airport.airportNm)"
                 }contentAppearance: { airport in
                     Text("\(airport.airportNm)")
-                }.frame(width: 250)
-                    .toast(isPresenting: $loading) {
-                        AlertToast(type: .loading)
-                    }
+                }
+                .frame(width: 250, height: 40)
+                .toast(isPresenting: $loading) {
+                    AlertToast(type: .loading)
+                }
                 Text("도착공항")
                 DropdownView(selected: $homeViewModel.selectedArriveAirport,
                              list: $homeViewModel.airportList) { airport in
                     "\(airport.airportNm)"
                 }contentAppearance: { airport in
                     Text("\(airport.airportNm)")
-                }.frame(width: 250)
+                }
+                .frame(width: 250, height: 40)
                 DatePicker(
                     "출발일",
                     selection: $homeViewModel.selectedDate,
                     in: Date()...(date ?? Date()),
                     displayedComponents: [.date]
-                ).frame(width: 200)
-                    .id(calendarId)
-                    .onChange(of: homeViewModel.selectedDate, perform: { _ in
-                        calendarId += 1
-                    })
+                )
+                .frame(width: 250, height: 40)
+                .id(calendarId)
+                .onChange(of: homeViewModel.selectedDate, perform: { _ in
+                    calendarId += 1
+                })
+                .frame(width: 250, height: 40)
                 Text("항공사")
                 DropdownView(selected: $homeViewModel.selectedAirline,
                              list: $homeViewModel.airlineList) { airline in
                     "\(airline.airlineNm)"
                 }contentAppearance: { airline in
                     Text("\(airline.airlineNm)")
-                }.frame(width: 250)
+                }
+                .frame(width: 250, height: 40)
                 Button(action: {
                     print("조회")
                     loading.toggle()
@@ -69,7 +74,6 @@ struct HomeView: View {
                     Alert(title: Text("출발공항과 도착공항을 다르게 설정해주세요."), message: nil,
                           dismissButton: .default(Text("확인")) {loading.toggle()})
                 }
-                
                 .popover(isPresented: $homeViewModel.isFinished) {
                     ListView(flightInfos: $homeViewModel.flightInfo)
                         .onDisappear {
