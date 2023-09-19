@@ -69,7 +69,7 @@ struct FavoritesView: View {
                     Text("데이터를 받아오는 데 실패하였습니다.")
                 }
             }
-            .navigationTitle(Text("즐겨찾기"))
+            .navigationTitle("즐겨찾기")
         }
     }
 }

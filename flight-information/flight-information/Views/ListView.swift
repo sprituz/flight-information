@@ -52,15 +52,32 @@ struct flightRow: View {
 
 struct ListView: View {
     @Binding var flightInfos: [FlightOpratInfo]
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
-        if flightInfos.isEmpty {
-            Text("해당하는 일정의 항공 운항정보가 없습니다")
-        }
-        else {
-            NavigationView {
-                List(flightInfos, id: \.self) { flightInfo in
-                    NavigationLink(destination: FlightDetailView(flightInfo: flightInfo)) {
-                        flightRow(flightInfo: flightInfo)
+        NavigationView {
+            VStack{
+                if flightInfos.isEmpty {
+                    Text("해당하는 일정의 항공 운항정보가 없습니다")
+                }
+                else {
+                    List(flightInfos, id: \.self) { flightInfo in
+                        NavigationLink(destination: FlightDetailView(flightInfo: flightInfo)) {
+                            flightRow(flightInfo: flightInfo)
+                        }
+                    }
+                }
+            }
+            .toolbarBackground(
+                Color.gray,
+                for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Image(systemName: "xmark").imageScale(.large).foregroundColor(Color.white)
                     }
                 }
             }
