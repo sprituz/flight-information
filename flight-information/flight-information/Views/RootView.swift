@@ -12,7 +12,7 @@ struct RootView: View {
     
     init() {
         UITabBar.appearance().backgroundColor = UIColor.white
-        }
+    }
     
     var body: some View {
         TabView(selection: $selectedIndex) {

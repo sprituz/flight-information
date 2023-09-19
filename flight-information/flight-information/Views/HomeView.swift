@@ -12,6 +12,7 @@ struct HomeView: View {
     @StateObject var homeViewModel:HomeViewModel = HomeViewModel()
     @State var loading = false
     @State private var calendarId: Int = 0
+    let date = Calendar.current.date(byAdding: .month, value: 1, to: Date())
     
     var body: some View {
         NavigationView {
@@ -36,6 +37,7 @@ struct HomeView: View {
                 DatePicker(
                     "출발일",
                     selection: $homeViewModel.selectedDate,
+                    in: Date()...(date ?? Date()),
                     displayedComponents: [.date]
                 ).frame(width: 200)
                     .id(calendarId)

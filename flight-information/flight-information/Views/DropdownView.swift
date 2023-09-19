@@ -51,8 +51,8 @@ struct DropdownView<T: Hashable, V: View>: View {
         }
         .cornerRadius(16)
         .overlay (RoundedRectangle(cornerRadius: 10)
-        .stroke(lineWidth: 1)
-        .foregroundColor(.gray.opacity(0.7)))
+            .stroke(lineWidth: 1)
+            .foregroundColor(.gray.opacity(0.7)))
         .padding(.horizontal)
     }
 }
