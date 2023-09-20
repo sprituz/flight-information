@@ -42,22 +42,14 @@ class HomeViewModel: ObservableObject {
             self?.objectWillChange.send()
         }
         
-        if airlines?.isEmpty ?? true {
+        if airlineList.isEmpty {
             print("airlines empty")
             airline()
-        } else {
-            airlines?.forEach {
-                airlineList.append(Airline(airlineId: $0.airlineId, airlineNm: $0.airlineNm ?? ""))
-            }
         }
         
-        if airports?.isEmpty ?? true {
+        if airportList.isEmpty {
             print("airports empty")
             airport()
-        } else {
-            airports?.forEach {
-                airportList.append(Airport(airportId: $0.airportId, airportNm: $0.airportNm ?? ""))
-            }
         }
     }
     
@@ -93,12 +85,20 @@ class HomeViewModel: ObservableObject {
             .sink { completion in
                 print("airport completion: \(completion)")
             } receiveValue: { airportListResponse in
-                let airportList = airportListResponse.response.body.items.item
-                airportList.forEach {
+                self.airportList = airportListResponse.response.body.items.item
+                
+                // API로부터 받아온 공항 목록과 현재 Realm에 저장된 공항 목록을 비교합니다.
+                let newAirports = self.airportList.filter { apiAirport in
+                    return self.airports?.first(where: { $0.airportId == apiAirport.airportId }) == nil
+                }
+                
+                // 새로운 공항이 있다면, 이들을 Realm에 추가합니다.
+                newAirports.forEach {
                     let task = AirportEntity(airportId: $0.airportId, airportNm: $0.airportNm)
                     self.database.write(task)
                 }
-                self.airportList = airportList
+                
+                self.airportList = newAirports.isEmpty ? self.airportList : newAirports
             }
             .store(in: &subscriptions)
     }
@@ -107,18 +107,27 @@ class HomeViewModel: ObservableObject {
         ApiService.getAirmanList()
             .receive(on: DispatchQueue.main)
             .sink { completion in
-                print("airline completion: \(completion)")
+                print("airport completion: \(completion)")
             } receiveValue: { airlineListResponse in
-                let airlineList = airlineListResponse.response.body.items.item
-                airlineList.forEach {
+                self.airlineList = airlineListResponse.response.body.items.item
+                
+                // API로부터 받아온 공항 목록과 현재 Realm에 저장된 공항 목록을 비교합니다.
+                let newAirlines = self.airlineList.filter { apiAirport in
+                    return self.airlines?.first(where: { $0.airlineId == apiAirport.airlineId }) == nil
+                }
+                
+                // 새로운 공항이 있다면, 이들을 Realm에 추가합니다.
+                newAirlines.forEach {
                     let task = AirlineEntity(airlineId: $0.airlineId, airlineNm: $0.airlineNm)
                     self.database.write(task)
                 }
-                self.airlineList = airlineList
+                
+                self.airlineList = newAirlines.isEmpty ? self.airlineList : newAirlines
             }
             .store(in: &subscriptions)
     }
-    
+
+
     func isSameAirPort() {
         if (selectedDepartAirport == selectedArriveAirport) {
             sameAirportAlert = true

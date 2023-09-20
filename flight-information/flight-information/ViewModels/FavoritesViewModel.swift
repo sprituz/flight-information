@@ -54,7 +54,6 @@ final class FavoritesViewModel: ObservableObject {
     }
     
     func loadData() {
-        print("loadData")
         favoriteInfos = database.read(FavoritesEntity.self)
         dropdownList()
     }
