@@ -17,13 +17,18 @@ struct flightRow: View {
         HStack {
             VStack(alignment: .leading) {
                 Text("\(flightInfo.depAirportNm) -> \(flightInfo.arrAirportNm) (\(flightInfo.airlineNm))" )
+                    .font(.system(size: 15))
                 HStack {
                     Text("출발일:" + (String(flightInfo.depPlandTime).toDate()?.formatted("yyyy/MM/dd") ?? ""))
+                        .font(.system(size: 15))
                     Text("출발시간:" + (String(flightInfo.depPlandTime).toDate()?.formatted(date: .omitted, time: .shortened) ?? ""))
+                        .font(.system(size: 15))
                 }
                 HStack {
                     Text("도착일:" + (String(flightInfo.arrPlandTime).toDate()?.formatted("yyyy/MM/dd") ?? ""))
+                        .font(.system(size: 15))
                     Text("도착시간:" + (String(flightInfo.arrPlandTime).toDate()?.formatted(date: .omitted, time: .shortened) ?? ""))
+                        .font(.system(size: 15))
                 }
             }
             .contentShape(Rectangle())
