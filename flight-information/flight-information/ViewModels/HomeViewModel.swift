@@ -42,6 +42,9 @@ class HomeViewModel: ObservableObject {
             self?.objectWillChange.send()
         }
         
+        airlineList = Array(airlines!).map {Airline(airlineId: $0.airlineId, airlineNm: $0.airlineNm!) }
+        airportList = Array(airports!).map {Airport(airportId: $0.airportId, airportNm: $0.airportNm!) }
+        
         if airlineList.isEmpty {
             print("airlines empty")
             airline()
@@ -107,13 +110,13 @@ class HomeViewModel: ObservableObject {
         ApiService.getAirmanList()
             .receive(on: DispatchQueue.main)
             .sink { completion in
-                print("airport completion: \(completion)")
+                print("airline completion: \(completion)")
             } receiveValue: { airlineListResponse in
                 self.airlineList = airlineListResponse.response.body.items.item
                 
                 // API로부터 받아온 공항 목록과 현재 Realm에 저장된 공항 목록을 비교합니다.
-                let newAirlines = self.airlineList.filter { apiAirport in
-                    return self.airlines?.first(where: { $0.airlineId == apiAirport.airlineId }) == nil
+                let newAirlines = self.airlineList.filter { apiAirline in
+                    return self.airlines?.first(where: { $0.airlineId == apiAirline.airlineId }) == nil
                 }
                 
                 // 새로운 공항이 있다면, 이들을 Realm에 추가합니다.
