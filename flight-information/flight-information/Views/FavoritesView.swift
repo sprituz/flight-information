@@ -17,6 +17,7 @@ struct FavoritesView: View {
                     if favoriteInfos.isEmpty {
                         HStack{
                             Text("출발공항")
+                                .font(.system(size: 15))
                             Spacer()
                             DropdownView(selected: $favoritesViewModel.selectedDepartAirport,
                                          list: $favoritesViewModel.airportList) { airport in
@@ -27,6 +28,7 @@ struct FavoritesView: View {
                         }
                         HStack {
                             Text("항공사")
+                                .font(.system(size: 15))
                             Spacer()
                             DropdownView(selected: $favoritesViewModel.selectedAirline,
                                          list: $favoritesViewModel.airlineList) { airline in
@@ -40,6 +42,7 @@ struct FavoritesView: View {
                     else {
                         HStack{
                             Text("출발공항")
+                                .font(.system(size: 15))
                             Spacer()
                             DropdownView(selected: $favoritesViewModel.selectedDepartAirport,
                                          list: $favoritesViewModel.airportList) { airport in
@@ -50,6 +53,7 @@ struct FavoritesView: View {
                         }
                         HStack {
                             Text("항공사")
+                                .font(.system(size: 15))
                             Spacer()
                             DropdownView(selected: $favoritesViewModel.selectedAirline,
                                          list: $favoritesViewModel.airlineList) { airline in
