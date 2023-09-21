@@ -11,7 +11,15 @@ final class FlightRowModel: ObservableObject {
     private let database = DataBaseManager.shared
     
     func addFavorites(flightInfo: FlightOpratInfo) {
-        let task = FavoritesEntity(uuid: UUID(), airlineNm: flightInfo.airlineNm, arrAirportNm: flightInfo.arrAirportNm, arrPlandTime: flightInfo.arrPlandTime, depAirportNm: flightInfo.depAirportNm, depPlandTime: flightInfo.depPlandTime, economyCharge: flightInfo.economyCharge, prestigeCharge: flightInfo.prestigeCharge, vihicleId: flightInfo.vihicleId)
+        let task = FavoritesEntity(uuid: UUID(),
+                                   airlineNm: flightInfo.airlineNm,
+                                   arrAirportNm: flightInfo.arrAirportNm,
+                                   arrPlandTime: flightInfo.arrPlandTime,
+                                   depAirportNm: flightInfo.depAirportNm,
+                                   depPlandTime: flightInfo.depPlandTime,
+                                   economyCharge: flightInfo.economyCharge,
+                                   prestigeCharge: flightInfo.prestigeCharge,
+                                   vihicleId: flightInfo.vihicleId)
         database.write(task)
     }
     
