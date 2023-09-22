@@ -16,8 +16,11 @@ struct flightRow: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text("\(flightInfo.depAirportNm) -> \(flightInfo.arrAirportNm) (\(flightInfo.airlineNm))" )
-                    .font(.system(size: 15))
+                HStack {
+                    Image(systemName: "airplane.departure")
+                    Text("\(flightInfo.depAirportNm) -> \(flightInfo.arrAirportNm) (\(flightInfo.airlineNm))" )
+                        .font(.system(size: 15))
+                }
                 HStack {
                     Text("출발일:" + (String(flightInfo.depPlandTime).toDate()?.formatted("yyyy/MM/dd") ?? ""))
                         .font(.system(size: 15))
