@@ -17,7 +17,7 @@ struct flightRow: View {
         HStack {
             VStack(alignment: .leading) {
                 HStack {
-                    Image(systemName: "airplane.departure")
+                    //Image(systemName: "airplane.departure")
                     Text("\(flightInfo.depAirportNm) -> \(flightInfo.arrAirportNm) (\(flightInfo.airlineNm))" )
                         .font(.system(size: 15))
                 }

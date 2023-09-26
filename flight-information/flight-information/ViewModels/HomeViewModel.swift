@@ -45,15 +45,8 @@ class HomeViewModel: ObservableObject {
         airlineList = Array(airlines!).map {Airline(airlineId: $0.airlineId, airlineNm: $0.airlineNm!) }
         airportList = Array(airports!).map {Airport(airportId: $0.airportId, airportNm: $0.airportNm!) }
         
-        if airlineList.isEmpty {
-            print("airlines empty")
-            airline()
-        }
-        
-        if airportList.isEmpty {
-            print("airports empty")
-            airport()
-        }
+        airline()
+        airport()
     }
     
     deinit {
@@ -129,8 +122,8 @@ class HomeViewModel: ObservableObject {
             }
             .store(in: &subscriptions)
     }
-
-
+    
+    
     func isSameAirPort() {
         if (selectedDepartAirport == selectedArriveAirport) {
             sameAirportAlert = true
