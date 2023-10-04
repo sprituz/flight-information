@@ -14,7 +14,7 @@ class HomeViewModel: ObservableObject {
     @Published var airlines: Results<AirlineEntity>?
     @Published var airports: Results<AirportEntity>?
     private var token: NotificationToken?
-    var subscriptions = Set<AnyCancellable>()
+    var cancellables = Set<AnyCancellable>()
     @Published var flightInfo: [FlightOpratInfo] = []
     @Published var selectedDepartAirport: Airport? = nil
     @Published var selectedArriveAirport: Airport? = nil
@@ -71,7 +71,7 @@ class HomeViewModel: ObservableObject {
             } receiveValue: { (response: FlightOpratInfoListResponse) in
                 print(response.response.body.items.item)
                 self.flightInfo = response.response.body.items.item
-            }.store(in: &subscriptions)
+            }.store(in: &cancellables)
         
     }
     
@@ -96,7 +96,7 @@ class HomeViewModel: ObservableObject {
                 
                 self.airportList = newAirports.isEmpty ? self.airportList : newAirports
             }
-            .store(in: &subscriptions)
+            .store(in: &cancellables)
     }
     
     func airline() {
@@ -120,7 +120,7 @@ class HomeViewModel: ObservableObject {
                 
                 self.airlineList = newAirlines.isEmpty ? self.airlineList : newAirlines
             }
-            .store(in: &subscriptions)
+            .store(in: &cancellables)
     }
     
     
