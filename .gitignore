@@ -1,12 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/xcode,macos,firebase
-# Edit at https://www.toptal.com/developers/gitignore?templates=xcode,macos,firebase
-
-### Firebase ###
-.idea
-**/node_modules/*
-
-### Firebase Patch ###
-.runtimeconfig.json
+# Created by https://www.toptal.com/developers/gitignore/api/xcode,macos
+# Edit at https://www.toptal.com/developers/gitignore?templates=xcode,macos
 
 ### macOS ###
 # General
@@ -57,7 +50,9 @@ xcuserdata/
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
 **/xcshareddata/WorkspaceSettings.xcsettings
-FlightInfo.plist
 
-# End of https://www.toptal.com/developers/gitignore/api/xcode,macos,firebase
+# Ignore all .plist files except Info.plist
+*.plist
+!Info.plist
 
+# End of https://www.toptal.com/developers/gitignore/api/xcode,macos
