@@ -13,7 +13,6 @@
 		9B95122E2AA69E270038343F /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B95122D2AA69E270038343F /* RootView.swift */; };
 		9B9512332AA69FB90038343F /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512322AA69FB90038343F /* HomeView.swift */; };
 		9B9512352AA69FC90038343F /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512342AA69FC80038343F /* FavoritesView.swift */; };
-		9B95123C2AA6AA710038343F /* FlightInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B95123B2AA6AA710038343F /* FlightInfo.plist */; };
 		9B95123E2AA6ABA90038343F /* flight-information++Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B95123D2AA6ABA90038343F /* flight-information++Bundle.swift */; };
 		9B9512412AA6B1E80038343F /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 9B9512402AA6B1E80038343F /* Alamofire */; };
 		9B9512432AA6B8220038343F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B9512422AA6B8220038343F /* APIService.swift */; };
@@ -33,6 +32,7 @@
 		9B97CA2F2AB19A32001D66E9 /* AlertToast in Frameworks */ = {isa = PBXBuildFile; productRef = 9B97CA2E2AB19A32001D66E9 /* AlertToast */; };
 		9B97CA312AB1A067001D66E9 /* Binding+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B97CA302AB1A067001D66E9 /* Binding+.swift */; };
 		9B97CA332AB80EFD001D66E9 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B97CA322AB80EFD001D66E9 /* Int+.swift */; };
+		9BA0F0B72C7B8B2200B1FA47 /* FlightInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BA0F0B62C7B8B2200B1FA47 /* FlightInfo.plist */; };
 		9BD921632AAE95080087B028 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD921622AAE95080087B028 /* FavoritesViewModel.swift */; };
 		9BF4094E2AA61FBB00285071 /* flight_informationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF4094D2AA61FBB00285071 /* flight_informationApp.swift */; };
 		9BF409522AA61FBC00285071 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BF409512AA61FBC00285071 /* Assets.xcassets */; };
@@ -66,7 +66,6 @@
 		9B95122D2AA69E270038343F /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		9B9512322AA69FB90038343F /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9B9512342AA69FC80038343F /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
-		9B95123B2AA6AA710038343F /* FlightInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = FlightInfo.plist; sourceTree = "<group>"; };
 		9B95123D2AA6ABA90038343F /* flight-information++Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "flight-information++Bundle.swift"; sourceTree = "<group>"; };
 		9B9512422AA6B8220038343F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		9B9512462AA6C37E0038343F /* ArprtListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArprtListResponse.swift; sourceTree = "<group>"; };
@@ -83,6 +82,7 @@
 		9B9512722AAB0ACE0038343F /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBaseManager.swift; sourceTree = "<group>"; };
 		9B97CA302AB1A067001D66E9 /* Binding+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+.swift"; sourceTree = "<group>"; };
 		9B97CA322AB80EFD001D66E9 /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
+		9BA0F0B62C7B8B2200B1FA47 /* FlightInfo.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = FlightInfo.plist; sourceTree = "<group>"; };
 		9BD921622AAE95080087B028 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		9BF4094A2AA61FBB00285071 /* flight-information.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "flight-information.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BF4094D2AA61FBB00285071 /* flight_informationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = flight_informationApp.swift; sourceTree = "<group>"; };
@@ -214,7 +214,7 @@
 				9B9512712AAB0AB50038343F /* Managers */,
 				9B9512622AA984640038343F /* Extensions */,
 				9B95124A2AA6C96D0038343F /* Info.plist */,
-				9B95123B2AA6AA710038343F /* FlightInfo.plist */,
+				9BA0F0B62C7B8B2200B1FA47 /* FlightInfo.plist */,
 				9B9512362AA6A7FE0038343F /* Services */,
 				9B9512312AA69E770038343F /* ViewModels */,
 				9B9512302AA69E6B0038343F /* Views */,
@@ -368,7 +368,7 @@
 			files = (
 				9BF409552AA61FBC00285071 /* Preview Assets.xcassets in Resources */,
 				9BF409522AA61FBC00285071 /* Assets.xcassets in Resources */,
-				9B95123C2AA6AA710038343F /* FlightInfo.plist in Resources */,
+				9BA0F0B72C7B8B2200B1FA47 /* FlightInfo.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
