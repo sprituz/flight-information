@@ -10,10 +10,11 @@ import SwiftUI
 struct FavoritesView: View {
     @StateObject var favoritesViewModel:FavoritesViewModel = FavoritesViewModel()
     
+    
     var body: some View {
         NavigationView {
             List {
-                if let favoriteInfos = favoritesViewModel.fliteredFavoriteInfos?.freeze() {
+                if let favoriteInfos = favoritesViewModel.filteredFavoriteInfos?.freeze() {
                     if favoriteInfos.isEmpty {
                         HStack{
                             Text("출발공항")

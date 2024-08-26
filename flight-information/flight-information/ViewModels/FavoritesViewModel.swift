@@ -11,7 +11,7 @@ import RealmSwift
 
 final class FavoritesViewModel: ObservableObject {
     @Published var favoriteInfos: Results<FavoritesEntity>?
-    @Published var fliteredFavoriteInfos: Results<FavoritesEntity>?
+    @Published var filteredFavoriteInfos: Results<FavoritesEntity>?
     private var cancellables = Set<AnyCancellable>()
     @Published var selectedDepartAirport: String?
     @Published var selectedAirline: String?
@@ -24,7 +24,7 @@ final class FavoritesViewModel: ObservableObject {
         self.selectedDepartAirport = "전체"
         self.selectedAirline = "전체"
         loadData()
-        //Realm 데이터 바뀌는 감지해서 데이터 다시 로드
+        //즐겨찾기가 추가되는것 감지해서 데이터를 다시 로드합니다.
         token = favoriteInfos?.observe { [weak self] (changes: RealmCollectionChange) in
             switch changes {
             case .initial:
@@ -81,14 +81,15 @@ final class FavoritesViewModel: ObservableObject {
     }
     
     func filterFavorites() {
-        if (selectedDepartAirport != "전체" && selectedAirline != "전체") {
-            fliteredFavoriteInfos = database.read(FavoritesEntity.self).filter("depAirportNm == '\(selectedDepartAirport ?? "")' AND airlineNm == '\(selectedAirline ?? "")'")
-        } else if(selectedDepartAirport != "전체" && selectedAirline == "전체") {
-            fliteredFavoriteInfos = database.read(FavoritesEntity.self).filter("depAirportNm == '\(selectedDepartAirport ?? "")'")
-        } else if(selectedDepartAirport == "전체" && selectedAirline != "전체") {
-            fliteredFavoriteInfos = database.read(FavoritesEntity.self).filter("airlineNm == '\(selectedAirline ?? "")'")
-        } else {
-            fliteredFavoriteInfos = database.read(FavoritesEntity.self)
+        let baseQuery = database.read(FavoritesEntity.self)
+        filteredFavoriteInfos = baseQuery
+        
+        if let selectedDepartAirport = selectedDepartAirport, selectedDepartAirport != "전체" {
+            filteredFavoriteInfos = baseQuery.filter("depAirportNm == %@", selectedDepartAirport)
+        }
+        
+        if let selectedAirline = selectedAirline, selectedAirline != "전체" {
+            filteredFavoriteInfos = filteredFavoriteInfos?.filter("airlineNm == %@", selectedAirline)
         }
     }
     
